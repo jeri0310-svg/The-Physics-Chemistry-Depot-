@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>理化段考複習站 - CH3 & CH4</title>
+    
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+    <style>
+        :root { --primary: #2c3e50; --accent: #3498db; --success: #27ae60; --danger: #e74c3c; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; color: var(--primary); line-height: 1.6; margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: var(--accent); border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .section { margin-bottom: 30px; padding: 15px; border-left: 5px solid var(--accent); background: #f0f7ff; }
+        .quiz-box { background: #fffbe6; padding: 20px; border-radius: 10px; border: 1px solid #ffe58f; margin-top: 20px; }
+        button { background: var(--accent); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: 0.3s; }
+        button:hover { opacity: 0.8; }
+        #result { margin-top: 15px; font-weight: bold; font-size: 1.2em; min-height: 1.5em; }
+        .footer { text-align: center; font-size: 0.8em; color: #888; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🧪 理化段考複習補給站</h1>
+    
+    <div class="section">
+        <h3>📖 複習範圍說明</h3>
+        <ul>
+            <li><strong>CH3 酸鹼鹽：</strong> 電解質、pH值、酸鹼中和、鹽類。</li>
+            <li><strong>CH4 反應速率與平衡：</strong> 碰撞理論、勒沙特列原理。</li>
+        </ul>
+    </div>
+
+    <div class="quiz-box">
+        <h3>⚡ 互動小挑戰 (Python 驅動)</h3>
+        <p id="question">問題：將濃硫酸稀釋時，pH 值會如何變化？</p>
+        <button id="btn1" py-click="ans_1">pH 值變大</button>
+        <button id="btn2" py-click="ans_2">pH 值變小</button>
+        <button id="btn3" py-click="ans_3">pH 值不變</button>
+        
+        <div id="result">點擊選項開始測驗...</div>
+    </div>
+
+    <div class="section" style="border-left-color: var(--success); background: #f6ffed;">
+        <h3>💡 段考必背口訣</h3>
+        <p><strong>酸橘子，鹼黃豆：</strong> 鉻酸根($CrO_4^{2-}$,黃) 加酸變橘色的二鉻酸根。</p>
+        <p><strong>吸熱加溫向右走：</strong> 反應若為吸熱，提高溫度平衡向右移動。</p>
+    </div>
+
+    <div class="footer">
+        Powered by Python (PyScript) & GitHub Pages | 2026 複習專用
+    </div>
+</div>
+
+<script type="py">
+    from pyscript import display
+
+    def ans_1(event):
+        # 濃硫酸是強酸，稀釋會讓酸性減弱，pH值上升（接近7）
+        display("✅ 正確！酸稀釋後酸性減弱，pH 值會增加並趨近於 7。", target="result", append=False)
+        document.getElementById("result").style.color = "#27ae60"
+
+    def ans_2(event):
+        display("❌ 答錯囉！pH 變小代表酸性變強，稀釋不會讓酸變強喔。", target="result", append=False)
+        document.getElementById("result").style.color = "#e74c3c"
+
+    def ans_3(event):
+        display("❌ 答錯囉！濃度改變了，pH 值一定會跟著動。", target="result", append=False)
+        document.getElementById("result").style.color = "#e74c3c"
+</script>
+
+</body>
+</html>
